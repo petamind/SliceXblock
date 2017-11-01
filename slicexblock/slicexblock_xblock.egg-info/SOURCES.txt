@@ -1,0 +1,12 @@
+slicexblock/__init__.py
+slicexblock/slicexblock.py
+slicexblock/static/README.txt
+slicexblock/static/css/slicexblock.css
+slicexblock/static/html/slicexblock.html
+slicexblock/static/js/src/slicexblock.js
+slicexblock_xblock.egg-info/PKG-INFO
+slicexblock_xblock.egg-info/SOURCES.txt
+slicexblock_xblock.egg-info/dependency_links.txt
+slicexblock_xblock.egg-info/entry_points.txt
+slicexblock_xblock.egg-info/requires.txt
+slicexblock_xblock.egg-info/top_level.txt

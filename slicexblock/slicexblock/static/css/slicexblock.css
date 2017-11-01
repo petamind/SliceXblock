@@ -1,0 +1,9 @@
+/* CSS for SliceXBlock */
+
+.slicexblock_block .count {
+    font-weight: bold;
+}
+
+.slicexblock_block p {
+    cursor: pointer;
+}
