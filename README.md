@@ -7,6 +7,8 @@ Dependencies:
 - YouTube-dl 
 - PySceneDetect
 
+Install SliceXBlock
 
+ sudo -u edxapp /edx/bin/pip.edxapp install /path/to/sliceblock
 
 
