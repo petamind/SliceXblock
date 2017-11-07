@@ -11,7 +11,7 @@ function SliceXBlock(runtime, element) {
     }
 
     function updateThumbs(result) {
-        $('.slices', element).text(result.video_slices);
+        $('.video_slices', element).text(result.video_slices);
     }
 
 

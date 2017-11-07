@@ -5,7 +5,7 @@ from xblock.core import XBlock
 from xblock.fields import Integer, Scope, String
 from xblock.fragment import Fragment
 from slice_video import SliceVideo
-from xblockutils.studio_editable import StudioEditableXBlockMixin
+#from xblockutils.studio_editable import StudioEditableXBlockMixin
 
 
 class SliceXBlock(XBlock):
@@ -44,18 +44,6 @@ class SliceXBlock(XBlock):
         when viewing courses.
         """
         html = self.resource_string("static/html/slicexblock.html")
-        frag = Fragment(html.format(self=self))
-        frag.add_css(self.resource_string("static/css/slicexblock.css"))
-        frag.add_javascript(self.resource_string("static/js/src/slicexblock.js"))
-        frag.initialize_js('SliceXBlock')
-        return frag
-
-    def author_view(self, context=None):
-        """
-        The primary view of the SliceXBlock, shown to authors
-        when viewing courses.
-        """
-        html = self.resource_string("static/html/slicexblock_cms.html")
         frag = Fragment(html.format(self=self))
         frag.add_css(self.resource_string("static/css/slicexblock.css"))
         frag.add_javascript(self.resource_string("static/js/src/slicexblock.js"))
@@ -173,7 +161,9 @@ class SliceXBlock(XBlock):
     @XBlock.json_handler
     def generate_slices(self, data, suffix=''):
         """
-        An example handler, which increments the data.
+        It takes the id and then download the video file
+        After that it slices the video to images.
+        it is done using slicevideo thread.
         """
         self.video_id = data['video_id']
 
@@ -181,13 +171,13 @@ class SliceXBlock(XBlock):
         #thread.start_new_thread(download_video, ("Thread-1", 2, ))
         thread1 = SliceVideo(1, self.video_id, 1)
         thread1.start()
-        self.video_slices_div = self.video_slices_div + self.video_id
-        return# {"video_id" : self.video_id}
+        self.video_slices_div = self.video_slices_div + "<div>" + self.video_id + "</div>"
+        return {"video_id" : self.video_id}
 
     @XBlock.json_handler
     def get_slices_div(self, data, suffix=''):
         """
-        An example handler, which increments the data.
+        Get the div that contain thumbs
         """
         return {"slices_div" : self.video_slices_div}
 
