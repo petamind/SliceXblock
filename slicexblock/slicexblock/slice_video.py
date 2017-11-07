@@ -24,7 +24,7 @@ class SliceVideo(threading.Thread):
         # new_days.close()
         download_cmd = ('C:/Users/nguye/Dropbox/edx/libs/youtube-dl.exe https://www.youtube.com/watch?v={0} -o E:/vids/{0}.mp4').format(self.video_id)
         os.system(download_cmd)
-        os.system(r'"scenedetect -i E:/vids/{0}.mp4 -co scenes_list.csv -d content -si -df 4"'.format(self.video_id))
+        os.system(r'"scenedetect -i E:/vids/{0}.mp4 -co {0}.csv -d content -si -df 4"'.format(self.video_id))
         print "Exiting " + self.name
 
 # def print_time(thread_name, counter, delay):

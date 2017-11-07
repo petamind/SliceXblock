@@ -5,12 +5,19 @@ function SliceXBlock(runtime, element) {
         $('.count', element).text(result.count);
     }
 
+    //Display to result
     function updateSlice(result) {
         $('.slices', element).text(result.video_id);
     }
 
+    function updateThumbs(result) {
+        $('.slices', element).text(result.video_slices);
+    }
+
+
     var handlerUrl = runtime.handlerUrl(element, 'increment_count');
     var handlerVideoSlices = runtime.handlerUrl(element, 'generate_slices');
+    var getVideoSlices = runtime.handlerUrl(element, 'get_slices_div');
     // $('p', element).click(function(eventObject) {
     //     $.ajax({
     //         type: "POST",
@@ -20,6 +27,7 @@ function SliceXBlock(runtime, element) {
     //     });
     // });
 
+    //send data to server
     $('.video_id', element).submit(function(eventObject) {
         var video_id = $('#video_id').val();
         $.ajax({
@@ -30,7 +38,14 @@ function SliceXBlock(runtime, element) {
         });
     });
 
+
     $(function ($) {
         /* Here's where you'd do things on page load. */
+        $.ajax({
+            type: "POST",
+            url: getVideoSlices,
+            data: JSON.stringify({"video_id": video_id}),
+            success: updateThumbs
+        });
     });
 }

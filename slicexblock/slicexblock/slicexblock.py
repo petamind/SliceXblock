@@ -2,6 +2,7 @@
 import os
 import thread
 import threading
+import time
 import pkg_resources
 from xblock.core import XBlock
 from xblock.fields import Integer, Scope, String
@@ -26,6 +27,11 @@ class SliceXBlock(XBlock):
     video_id = String(
         default="video_id", scope=Scope.settings,
         help="Youtube video id",
+    )
+
+    video_slices_div = String(
+        default="<div>The div</div>", scope=Scope.settings,
+        help="Youtube video slice div",
     )
 
     def resource_string(self, path):
@@ -82,8 +88,15 @@ class SliceXBlock(XBlock):
         #thread.start_new_thread(download_video, ("Thread-1", 2, ))
         thread1 = SliceVideo(1, self.video_id, 1)
         thread1.start()
-        
-        return {"video_id" : self.video_id}
+        self.video_slices_div = self.video_slices_div + self.video_id
+        return# {"video_id" : self.video_id}
+
+    @XBlock.json_handler
+    def get_slices_div(self, data, suffix=''):
+        """
+        An example handler, which increments the data.
+        """
+        return {"slices_div" : self.video_slices_div}
 
     # Define a function for the thread
     def download_video(threadName, delay):
