@@ -18,14 +18,6 @@ function SliceXBlock(runtime, element) {
     var handlerUrl = runtime.handlerUrl(element, 'increment_count');
     var handlerVideoSlices = runtime.handlerUrl(element, 'generate_slices');
     var getVideoSlices = runtime.handlerUrl(element, 'get_slices_div');
-    // $('p', element).click(function(eventObject) {
-    //     $.ajax({
-    //         type: "POST",
-    //         url: handlerUrl,
-    //         data: JSON.stringify({"hello": "world"}),
-    //         success: updateCount
-    //     });
-    // });
 
     //send data to server
     $('.video_id', element).submit(function(eventObject) {
