@@ -25,7 +25,7 @@ setup(
     name='slicexblock-xblock',
     version='0.1',
     description='slicexblock XBlock',   # TODO: write a better description.
-    license='UNKNOWN',          # TODO: choose a license: 'AGPL v3' and 'Apache 2.0' are popular.
+    license='GPL v3',          # TODO: choose a license: 'AGPL v3' and 'Apache 2.0' are popular.
     packages=[
         'slicexblock',
     ],

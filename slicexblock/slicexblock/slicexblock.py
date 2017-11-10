@@ -28,7 +28,7 @@ class SliceXBlock(XBlock):
     )
 
     video_slices_div = String(
-        default="<div>The div</div>", scope=Scope.settings,
+        default="<div>The div</div>", scope=Scope.user_state,
         help="Youtube video slice div",
     )
 

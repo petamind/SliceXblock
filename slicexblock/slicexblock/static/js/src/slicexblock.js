@@ -11,21 +11,20 @@ function SliceXBlock(runtime, element) {
     }
 
     function updateThumbs(result) {
-        $('.video_slices', element).text(result.video_slices);
+        $('.video_slices', element).text(result.slices_div);
     }
-
 
     var handlerUrl = runtime.handlerUrl(element, 'increment_count');
     var handlerVideoSlices = runtime.handlerUrl(element, 'generate_slices');
     var getVideoSlices = runtime.handlerUrl(element, 'get_slices_div');
 
     //send data to server
-    $('.video_id', element).submit(function(eventObject) {
+    $('.video_id', element).submit(function (eventObject) {
         var video_id = $('#video_id').val();
         $.ajax({
             type: "POST",
             url: handlerVideoSlices,
-            data: JSON.stringify({"video_id": video_id}),
+            data: JSON.stringify({ "video_id": video_id }),
             success: updateSlice
         });
     });
@@ -36,8 +35,10 @@ function SliceXBlock(runtime, element) {
         $.ajax({
             type: "POST",
             url: getVideoSlices,
-            data: JSON.stringify({"video_id": video_id}),
+            data: JSON.stringify({ "video_id": video_id }),
             success: updateThumbs
         });
+
+        alert("Loaded");
     });
 }

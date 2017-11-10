@@ -25,8 +25,8 @@ class SliceVideo(threading.Thread):
         # new_days.close()
         download_cmd = ('youtube-dl https://www.youtube.com/watch?v={0} -o /vids/{0}/{0}.mp4').format(self.video_id)
         os.system(download_cmd)
-        os.system(r'"/vids/tung {0}"'.format(self.video_id))
-        print "Exiting " + self.name
+        slice_cmd = ('/vids/tung {0}').format(self.video_id)
+        os.system(slice_cmd)
 
 # def print_time(thread_name, counter, delay):
 #     "OK docstring"
