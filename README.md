@@ -9,6 +9,6 @@ Dependencies:
 
 Install SliceXBlock
 
- sudo -u edxapp /edx/bin/pip.edxapp install /path/to/sliceblock
+ sudo -u edxapp /edx/bin/pip.edxapp install /path/to/slicexblock
 
 
